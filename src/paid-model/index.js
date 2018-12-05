@@ -15,7 +15,7 @@ export const PaidModal = ({ isOpen, onRequestClose, modalPicture }) => {
     >
       <div className='header' >
         Some title
-    <buttom onClick={onRequestClose}>X</buttom>
+    <button onClick={onRequestClose}>X</button>
       </div>
       <ImageCard pictureSrc={modalPicture} />
       <div className='content'>
