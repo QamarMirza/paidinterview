@@ -1,21 +1,44 @@
 import React, { Component } from 'react';
 import './App.css';
-import { ImageCard } from './card-component/component';
-import mockData from './data.json';
+import ReactModal from 'react-modal';
+import { PaidModal } from './paid-model';
+import { ImageGrid } from './card-grid';
+
+ReactModal.setAppElement('#root');
 
 class App extends Component {
+  constructor() {
+    super();
 
+    this.state = {
+      modalIsOpen: false,
+      modalPic: null,
+    };
+
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+
+  }
+
+  openModal(pic) {
+    this.setState({ modalPic: pic, modalIsOpen: true });
+  }
+
+  closeModal() {
+    this.setState({ modalIsOpen: false, modalPic: null });
+  }
 
   render() {
-    return (
-      <div className={'image-container'}>
 
-        {
-          mockData.map((element, i) => (
-            <ImageCard key={i} pictureSrc={element.picture} />
-          ))
-        }
-      </div >
+    return (
+      <React.Fragment>
+        <PaidModal
+          isOpen={this.state.modalIsOpen}
+          modalPicture={this.state.modalPic}
+          onRequestClose={this.closeModal}
+        />
+        <ImageGrid openModal={this.openModal} />
+      </React.Fragment>
     );
   }
 }
