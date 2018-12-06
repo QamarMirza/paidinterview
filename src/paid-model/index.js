@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import Chip from '@material-ui/core/Chip';
 
 import './styles.css';
 
@@ -34,6 +35,21 @@ export const PaidModal = ({ isOpen, onRequestClose, modalPicture }: Props) => {
         <div className='user' > Name: {modalPicture.user.name} </div>
         <div className='likes' > Likes: {modalPicture.likes} </div>
         <div className='comments' > Comments: {modalPicture.comments} </div>
+        <div>
+          <span>tags: </span>
+
+          {
+            modalPicture.tags.map((tag, i) => (
+              <Chip
+                label={tag}
+                //className={classes.chip} 
+                variant="outlined"
+              />
+
+            ))
+          }
+        </div>
+
       </div>
     </Modal>);
 };

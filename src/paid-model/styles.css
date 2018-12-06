@@ -10,13 +10,15 @@
  display: flex;
  flex-direction: row;
  justify-content: flex-start;
+ overflow: auto;
 
 }
 
 .modal-content {
   display: block;
   width: 50%;
-  padding: 10%
+  padding: 10%;
+
 }
 
 .modal-picture {
