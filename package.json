@@ -15,7 +15,8 @@
     "react-select": "2.1.2",
     "react-shallow-testutils": "^3.0.1",
     "react-test-renderer": "^16.6.3",
-    "redux": "4.0.1"
+    "redux": "4.0.1",
+    "sinon": "^7.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
