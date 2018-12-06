@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "3.6.1",
+    "classnames": "2.2.6",
+    "flow-typed": "2.5.1",
     "react": "16.6.3",
     "react-dom": "16.6.3",
     "react-dropdown": "1.6.2",
@@ -26,5 +29,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "flow-bin": "^0.87.0"
+  }
 }

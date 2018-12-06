@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
 import { ImageCard } from '../card-component/component';
 import { SearchDropDown } from '../dropdown';
-export class ImageGrid extends Component {
+import './styles.css'
 
-  constructor(props) {
+type Props = {
+  queryString: string,
+  filterKeyword?: string,
+  sortKeyword?: string,
+  openModal: (Object) => void,
+};
+type State = {
+  data: Array<Object>,
+  names: Array<Object>,
+};
+
+export class ImageGrid extends Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = {
       data: [],
@@ -11,7 +23,7 @@ export class ImageGrid extends Component {
     }
   }
 
-  fetchData(sortKeyword, filterKeyword) {
+  fetchData(sortKeyword?: string, filterKeyword?: string) {
     let queryString = '?';
     if (sortKeyword && sortKeyword.trim()) {
       queryString += `sort=${sortKeyword}`
@@ -30,8 +42,7 @@ export class ImageGrid extends Component {
       });
   }
 
-  componentDidUpdate(prevProps) {
-    // Typical usage (don't forget to compare props):
+  componentDidUpdate(prevProps: Props) {
     if (this.props.sortKeyword !== prevProps.sortKeyword || this.props.filterKeyword !== prevProps.filterKeyword) {
       this.fetchData(this.props.sortKeyword, this.props.filterKeyword);
     }
@@ -43,7 +54,6 @@ export class ImageGrid extends Component {
 
   render() {
     const { openModal } = this.props;
-    console.log('filter, sort', this.props.filterKeyword, this.props.sortKeyword)
 
     const sortOptions = [
       { value: 1, label: 'Name' },
@@ -57,6 +67,7 @@ export class ImageGrid extends Component {
         <SearchDropDown placeholder={'Sort By:'} options={sortOptions} type={'SORT'} />
         <SearchDropDown placeholder={'Filter By:'} options={filterOptions} type={'FILTER'} />
         <div className={'image-container'} >
+
           {
             this.state.data.map((picture, i) => (
               <ImageCard

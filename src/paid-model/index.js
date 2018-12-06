@@ -1,9 +1,15 @@
 import React from 'react';
 import Modal from 'react-modal';
-import { ImageCard } from '../card-component/component'
+
 import './styles.css';
 
-export const PaidModal = ({ isOpen, onRequestClose, modalPicture }) => {
+type Props = {
+  isOpen: boolean,
+  onRequestClose: () => void,
+  modalPicture: any,
+}
+
+export const PaidModal = ({ isOpen, onRequestClose, modalPicture }: Props) => {
   if (!isOpen) {
     return null;
   }
@@ -11,14 +17,20 @@ export const PaidModal = ({ isOpen, onRequestClose, modalPicture }) => {
     <Modal
       isOpen={isOpen}
       onRequestClose={onRequestClose}
-      className="Modal"
+      className="modal"
     >
-      <div className='header' >
-        Some title
-    <button onClick={onRequestClose}>X</button>
+
+      <div className='modal-header' >
+        <button className='modal-header-closebutton' onClick={onRequestClose}>X</button>
       </div>
-      <ImageCard pictureSrc={modalPicture} />
-      <div className='content'>
+
+      <img
+        src={modalPicture.picture}
+        alt=""
+        className={'modal-picture'}
+      />
+
+      <div className='modal-content' >
         <div className='user' > Name: {modalPicture.user.name} </div>
         <div className='likes' > Likes: {modalPicture.likes} </div>
         <div className='comments' > Comments: {modalPicture.comments} </div>

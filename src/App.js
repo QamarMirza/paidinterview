@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
-import './App.css';
 import ReactModal from 'react-modal';
 import { PaidModal } from './paid-model';
 import { ImageGrid } from './card-grid';
 
 ReactModal.setAppElement('#root');
 
-class App extends Component {
+type State = {
+  modalIsOpen: boolean,
+  modalPic?: any,
+}
+
+class App extends Component<{}, State> {
   constructor() {
     super();
 
@@ -14,19 +18,21 @@ class App extends Component {
       modalIsOpen: false,
       modalPic: null,
     };
-
+    // $FlowIgnore
     this.openModal = this.openModal.bind(this);
+    // $FlowIgnore
     this.closeModal = this.closeModal.bind(this);
 
   }
 
-  openModal(pic) {
+  openModal(pic: any) {
     this.setState({ modalPic: pic, modalIsOpen: true });
   }
 
   closeModal() {
     this.setState({ modalIsOpen: false, modalPic: null });
   }
+
 
   render() {
 

@@ -1,0 +1,20 @@
+[ignore]
+.*/node_modules/.*
+.*/public/.*
+.*/src/serviceWorker.*
+.*/src/index.*
+.*\.test\.js
+
+[include]
+
+[libs]
+<PROJECT_ROOT>/flow-typed/
+
+[lints]
+
+[options]
+all=true
+suppress_comment= \\(.\\|\n\\)*\\$FlowIgnore
+module.name_mapper='^src\/\(.*\)$' ->'<PROJECT_ROOT>/src/\1'
+
+[strict]
