@@ -3,14 +3,13 @@ import ReactModal from 'react-modal';
 import { PaidModal } from './paid-model';
 import { ImageGrid } from './card-grid';
 
-ReactModal.setAppElement('#root');
-
 type State = {
   modalIsOpen: boolean,
   modalPic?: any,
 }
 
 class App extends Component<{}, State> {
+
   constructor() {
     super();
 
@@ -18,11 +17,15 @@ class App extends Component<{}, State> {
       modalIsOpen: false,
       modalPic: null,
     };
+
     // $FlowIgnore
     this.openModal = this.openModal.bind(this);
     // $FlowIgnore
     this.closeModal = this.closeModal.bind(this);
 
+    if (process.env.NODE_ENV !== 'test') {
+      ReactModal.setAppElement('#root');
+    }
   }
 
   openModal(pic: any) {
@@ -35,7 +38,6 @@ class App extends Component<{}, State> {
 
 
   render() {
-
     return (
       <React.Fragment>
         <PaidModal

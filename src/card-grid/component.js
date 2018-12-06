@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ImageCard } from '../card-component/component';
+import { ImageCard } from '../card-component';
 import { SearchDropDown } from '../dropdown';
 import './styles.css'
 
