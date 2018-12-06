@@ -36,7 +36,7 @@ export const PaidModal = ({ isOpen, onRequestClose, modalPicture }: Props) => {
         <div className='likes' > Likes: {modalPicture.likes} </div>
         <div className='comments' > Comments: {modalPicture.comments} </div>
         <div>
-          <span>tags: </span>
+          <span>Tags: </span>
 
           {
             modalPicture.tags.map((tag, i) => (
