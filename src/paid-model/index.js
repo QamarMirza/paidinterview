@@ -42,8 +42,8 @@ export const PaidModal = ({ isOpen, onRequestClose, modalPicture }: Props) => {
             modalPicture.tags.map((tag, i) => (
               <Chip
                 label={tag}
-                //className={classes.chip} 
                 variant="outlined"
+                key={i}
               />
 
             ))

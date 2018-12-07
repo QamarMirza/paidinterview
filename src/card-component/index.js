@@ -17,7 +17,7 @@ export const ImageCard = ({ pictureSrc, onClick }: Props) => {
   else {
     const click = onClick ? () => () => onClick() : () => { };
     return (
-      <Card classNames='image-card'>
+      <Card >
         <CardActionArea>
           < div
             className={classnames('image-container-items')}
