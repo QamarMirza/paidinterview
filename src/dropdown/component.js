@@ -7,6 +7,7 @@ type Props = {
   type: string,
   options: Array<Object>,
   selectSortAction: (any) => void,
+  classname: string,
 };
 type State = {
   selectedOption?: Object,
@@ -30,7 +31,7 @@ export class SearchDropDown extends Component<Props, State> {
 
   render() {
     const { selectedOption } = this.state;
-    const { placeholder, options } = this.props;
+    const { placeholder, options, classname } = this.props;
     return (
       <Select
         value={selectedOption}
@@ -39,6 +40,7 @@ export class SearchDropDown extends Component<Props, State> {
         isSearchable
         placeholder={placeholder}
         isClearable={true}
+        className={classname}
       />
     )
   }

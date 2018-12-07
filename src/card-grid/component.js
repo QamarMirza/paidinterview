@@ -64,16 +64,20 @@ export class ImageGrid extends Component<Props, State> {
     const filterOptions = this.state.names.map((name, i) => ({ value: i, label: name }));
     return (
       <React.Fragment>
-        <SearchDropDown
-          placeholder={'Sort By:'}
-          options={sortOptions}
-          type={'SORT'}
-        />
-        <SearchDropDown
-          placeholder={'Filter By:'}
-          options={filterOptions}
-          type={'FILTER'}
-        />
+        <span className='dropdown-container'>
+          <SearchDropDown
+            placeholder={'Sort By:'}
+            options={sortOptions}
+            type={'SORT'}
+            classname={'dropdown-sort'}
+          />
+          <SearchDropDown
+            placeholder={'Filter By:'}
+            options={filterOptions}
+            type={'FILTER'}
+            classname={'dropdown-filter'}
+          />
+        </span>
         <div className={'image-container'} >
 
           {
