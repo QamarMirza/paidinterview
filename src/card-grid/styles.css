@@ -2,30 +2,27 @@
   display:flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   margin-bottom: 10%;
   margin-left: 20%;
   margin-right: 20%;
 
 }
+
 .dropdown-container{
   display:flex;
-  justify-content: flex-start;
+  justify-content: center;
   margin-top: 10%;
-  margin-left: 30%;
-  margin-right: 30%;
-
+  margin-left: 20%;
+  margin-right: 20%;
 }
+
 .dropdown-sort {
-  display: inline-block;
+  display: block;
   width: 50%;
-  
   }
   
   .dropdown-filter{
-    display: inline-block;
+    display: block;
     width: 50%;
-  
-  
-  
   }
